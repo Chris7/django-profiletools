@@ -12,7 +12,7 @@ def get_profile(user):
         return None
 
     try:
-        return user.get_profile()
+        return getattr(user, 'userprofile', user.get_profile())
     except ObjectDoesNotExist:
         return None
 
